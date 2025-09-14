@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monthsary Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #fce4ec;
+      font-family: 'Georgia', serif;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .envelope {
+      width: 220px;
+      height: 140px;
+      background: #e91e63;
+      position: relative;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .envelope:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-bottom: 70px solid #f06292;
+    }
+
+    .paper {
+      display: none;
+      background: #fff;
+      padding: 20px;
+      max-width: 90%;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      color: #e91e63;
+      margin-top: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .envelope {
+        width: 180px;
+        height: 110px;
+      }
+      .envelope:before {
+        border-left: 90px solid transparent;
+        border-right: 90px solid transparent;
+        border-bottom: 55px solid #f06292;
+      }
+      .paper {
+        font-size: 16px;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .envelope {
+        width: 150px;
+        height: 90px;
+      }
+      .envelope:before {
+        border-left: 75px solid transparent;
+        border-right: 75px solid transparent;
+        border-bottom: 45px solid #f06292;
+      }
+      .paper {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" onclick="openLetter()"></div>
+
+  <div class="paper" id="paper">
+    <h2>💌 Invitation 💌</h2>
+    <p>Notnac, you are invited to a movie date I will host tomorrow.<br>
+    This is our first monthsary and I will be glad if you accept this invitation.</p>
+    <p><em>Your always loving boyfriend ❤️</em></p>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.querySelector(".envelope").style.display = "none";
+      document.getElementById("paper").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
